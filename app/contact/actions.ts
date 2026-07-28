@@ -66,6 +66,7 @@ export async function submitContactForm(
     host: smtpHost,
     port: smtpPort,
     secure: smtpSecure,
+    requireTLS: !smtpSecure,
     auth: {
       user: smtpUser,
       pass: smtpPass,
@@ -86,10 +87,17 @@ export async function submitContactForm(
         validated.data.message,
       ].join("\n"),
     });
-  } catch {
+  } catch (error) {
+    const smtpError = error as { code?: string; message?: string };
+    console.error("Contact form SMTP send failed", {
+      code: smtpError?.code,
+      message: smtpError?.message,
+    });
+
     return {
       success: false,
-      message: "Something went wrong while sending your message. Please try again.",
+      message:
+        "Could not send email right now. Please try again in a moment, or contact us directly at hello@penselogpixel.dk.",
       errors: {},
       values: rawValues,
     };
