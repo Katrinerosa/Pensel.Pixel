@@ -32,12 +32,12 @@ export default function Hero() {
       <section className="bg-[#f7f4ee] px-6 py-12 sm:py-16">
         <div className="mx-auto max-w-[980px] text-center">
           <p className="text-3xl font-black tracking-tight text-[#2f2b2f] sm:text-5xl">
-           Stay in the flow.
+           Reading is more than decoding.
           </p>
 
           <h2 className="mt-6 text-4xl font-black leading-[1.08] text-[#1f286c] sm:text-6xl">
             <span className="inline">
-              When readers stay in the flow, they don't just read,
+              When readers stay in the flow, they don't just decode words,
             </span>
             <br />
             <span className="inline">
@@ -66,28 +66,29 @@ export default function Hero() {
             Recognition & Support
           </p>
 
-          <div className="mx-auto grid w-full max-w-[860px] gap-4 text-left sm:grid-cols-2">
-            <article className="rounded-xl border border-[#1f286c]/20 bg-white p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#1f286c]">
-                Kickstart Micro Grant
-              </p>
-              <p className="mt-2 text-2xl font-black text-[#1f2144]">DKK 25,000</p>
-              <p className="mt-1 text-sm text-[#4f4a4f]">June 2025</p>
-              <p className="mt-2 text-sm leading-relaxed text-[#2f2b2f]">
-                Grant number: KS65-2025-02
-              </p>
-            </article>
+          <div className="mx-auto w-full max-w-[860px] text-left">
+            <p className="text-lg leading-relaxed text-[#2f2b2f] sm:text-2xl">
+              Pensel & Pixel received two grants from the Danish Foundation for
+              Entrepreneurship (FFE), supporting the development of ReadFlow
+              (DKK 75,000 total).
+            </p>
+            <p className="mt-5 text-lg leading-relaxed text-[#2f2b2f] sm:text-2xl">
+              For the CVR-based grant, required co-financing is paid by Pensel
+              & Pixel.
+            </p>
 
-            <article className="rounded-xl border border-[#1f286c]/20 bg-white p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#1f286c]">
-                Micro Grant
+            <div className="mt-10 flex flex-col items-center text-center">
+              <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#1f286c]/75">
+                Supported by
               </p>
-              <p className="mt-2 text-2xl font-black text-[#1f2144]">DKK 50,000</p>
-              <p className="mt-1 text-sm text-[#4f4a4f]">December 2025</p>
-              <p className="mt-2 text-sm leading-relaxed text-[#2f2b2f]">
-                Grant number: ML68-2025-25
-              </p>
-            </article>
+              <Image
+                src="/Kickstart_Mikrolegat_logo_12.png"
+                alt="Kickstart Mikrolegat"
+                width={920}
+                height={260}
+                className="mt-4 h-auto w-[280px] object-contain sm:w-[340px]"
+              />
+            </div>
           </div>
         </div>
       </section>

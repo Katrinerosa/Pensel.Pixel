@@ -4,18 +4,17 @@ import Link from "next/link";
 const navItems = [
   { label: "ReadFlow", href: "/readflow" },
   { label: "Story", href: "/story" },
-  { label: "Projects", href: "/#projects" },
-  { label: "Achievements", href: "/#achievements" },
-  { label: "About", href: "/#about" },
-  { label: "Contact", href: "/#contact" },
+  
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const mobileNavItems = [
   { label: "ReadFlow", href: "/readflow" },
   { label: "Story", href: "/story" },
-  { label: "Projects", href: "/#projects" },
-  { label: "About", href: "/#about" },
-  { label: "Contact", href: "/#contact" },
+  
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
