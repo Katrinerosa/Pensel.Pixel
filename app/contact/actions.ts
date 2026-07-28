@@ -36,19 +36,27 @@ export async function submitContactForm(
     };
   }
 
-  const smtpHost = process.env.SMTP_HOST;
-  const smtpPort = Number(process.env.SMTP_PORT ?? "587");
-  const smtpSecure = process.env.SMTP_SECURE === "true";
-  const smtpUser = process.env.SMTP_USER;
-  const smtpPass = process.env.SMTP_PASS;
+  const smtpHost = process.env.SMTP_HOST ?? process.env.SMPT_HOST;
+  const smtpPort = Number(process.env.SMTP_PORT ?? process.env.SMPT_PORT ?? "587");
+  const smtpSecure =
+    (process.env.SMTP_SECURE ?? process.env.SMPT_SECURE ?? "false") === "true";
+  const smtpUser = process.env.SMTP_USER ?? process.env.SMPT_USER;
+  const smtpPass = process.env.SMTP_PASS ?? process.env.SMPT_PASS;
   const contactTo = process.env.CONTACT_TO;
   const contactFrom = process.env.CONTACT_FROM ?? smtpUser;
 
   if (!smtpHost || !smtpUser || !smtpPass || !contactTo || !contactFrom) {
+    const missingKeys = [
+      !smtpHost ? "SMTP_HOST" : null,
+      !smtpUser ? "SMTP_USER" : null,
+      !smtpPass ? "SMTP_PASS" : null,
+      !contactTo ? "CONTACT_TO" : null,
+      !contactFrom ? "CONTACT_FROM" : null,
+    ].filter(Boolean);
+
     return {
       success: false,
-      message:
-        "Mail is not configured yet. Please add SMTP environment variables.",
+      message: `Mail is not configured yet. Missing: ${missingKeys.join(", ")}`,
       errors: {},
       values: rawValues,
     };
