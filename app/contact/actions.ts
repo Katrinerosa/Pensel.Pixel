@@ -1,5 +1,6 @@
 "use server";
 
+import nodemailer from "nodemailer";
 import { z } from "zod";
 import type { ContactFormState } from "@/app/contact/form-state";
 
@@ -31,6 +32,57 @@ export async function submitContactForm(
       success: false,
       message: "Please correct the highlighted fields and try again.",
       errors: validated.error.flatten().fieldErrors,
+      values: rawValues,
+    };
+  }
+
+  const smtpHost = process.env.SMTP_HOST;
+  const smtpPort = Number(process.env.SMTP_PORT ?? "587");
+  const smtpSecure = process.env.SMTP_SECURE === "true";
+  const smtpUser = process.env.SMTP_USER;
+  const smtpPass = process.env.SMTP_PASS;
+  const contactTo = process.env.CONTACT_TO;
+  const contactFrom = process.env.CONTACT_FROM ?? smtpUser;
+
+  if (!smtpHost || !smtpUser || !smtpPass || !contactTo || !contactFrom) {
+    return {
+      success: false,
+      message:
+        "Mail is not configured yet. Please add SMTP environment variables.",
+      errors: {},
+      values: rawValues,
+    };
+  }
+
+  const transporter = nodemailer.createTransport({
+    host: smtpHost,
+    port: smtpPort,
+    secure: smtpSecure,
+    auth: {
+      user: smtpUser,
+      pass: smtpPass,
+    },
+  });
+
+  try {
+    await transporter.sendMail({
+      from: contactFrom,
+      to: contactTo,
+      replyTo: validated.data.email,
+      subject: `[Contact] ${validated.data.subject}`,
+      text: [
+        `Name: ${validated.data.name}`,
+        `Email: ${validated.data.email}`,
+        "",
+        "Message:",
+        validated.data.message,
+      ].join("\n"),
+    });
+  } catch {
+    return {
+      success: false,
+      message: "Something went wrong while sending your message. Please try again.",
+      errors: {},
       values: rawValues,
     };
   }
