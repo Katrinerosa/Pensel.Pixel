@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pensel & Pixel
 
-## Getting Started
+Pensel & Pixel er en Next.js-app med fokus pa inkluderende laering, storytelling og ReadFlow-konceptet.
 
-First, run the development server:
+## Routes
+
+- `/` - landing page
+- `/readflow` - ReadFlow-side
+- `/story` - My Story-side
+
+## Run Locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000` in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+## Lille forklaring om TypeScript
 
-To learn more about Next.js, take a look at the following resources:
+TypeScript er JavaScript med typer.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Kort sagt betyder det:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Du kan beskrive, hvilken type data en variabel eller funktion forventer.
+- Du far fejl tidligere (mens du koder), i stedet for forst i browseren.
+- Koden bliver lettere at vedligeholde, nar projektet vokser.
 
-## Deploy on Vercel
+Eksempel:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```ts
+function greet(name: string): string {
+	return `Hello ${name}`;
+}
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Her siger `name: string`, at funktionen forventer tekst, og `: string` efter parentesen siger, at funktionen returnerer tekst.
