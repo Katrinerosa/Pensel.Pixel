@@ -48,16 +48,17 @@ export default function ReadflowPage() {
           </p>
 
           <div className="mt-10 mb-20 w-full overflow-hidden rounded-2xl border border-black/15 shadow-[0_14px_36px_rgba(28,24,24,0.16)]">
-            <video
-              className="block h-auto w-full"
-              controls
-              playsInline
-              preload="metadata"
-              aria-label="ReadFlow explainer video"
-            >
-              <source src="/Readflowexplain.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            <div className="relative w-full pb-[56.25%]">
+              <iframe
+                className="absolute inset-0 h-full w-full"
+                src="https://www.youtube-nocookie.com/embed/57-gOSlH7bk"
+                title="ReadFlow explainer video"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            </div>
           </div>
 
           <h2 className="text-3xl font-black leading-tight text-[#1f286c] sm:text-5xl">
