@@ -15,6 +15,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Pensel & Pixel",
   description: "Empowering learning through educational technology",
+  icons: {
+    icon: "/Pensel_Pixel_favicon.svg",
+    shortcut: "/Pensel_Pixel_favicon.svg",
+    apple: "/Pensel_Pixel_favicon.svg",
+  },
 };
 
 export default function RootLayout({
