@@ -16,9 +16,12 @@ export const metadata: Metadata = {
   title: "Pensel & Pixel",
   description: "Empowering learning through educational technology",
   icons: {
-    icon: "/Pensel_Pixel_favicon.svg",
-    shortcut: "/Pensel_Pixel_favicon.svg",
-    apple: "/Pensel_Pixel_favicon.svg",
+    icon: [
+      { url: "/favicon-64.png", type: "image/png", sizes: "64x64" },
+      { url: "/Pensel_Pixel_favicon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon-64.png",
+    apple: "/favicon-64.png",
   },
 };
 
