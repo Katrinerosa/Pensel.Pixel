@@ -17,7 +17,7 @@ export default function Footer() {
             </p>
             <ul className="mt-4 space-y-2 text-base text-white/95">
               <li>
-                <Link href="/readflow" className="transition hover:text-white">
+                <Link href="https://readflow.dk" className="transition hover:text-white">
                   ReadFlow
                 </Link>
               </li>

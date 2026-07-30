@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const navItems = [
-  { label: "ReadFlow", href: "/readflow" },
+  { label: "ReadFlow", href: "https://readflow.dk" },
   { label: "Story", href: "/story" },
   
   { label: "About", href: "/about" },
@@ -10,7 +10,7 @@ const navItems = [
 ];
 
 const mobileNavItems = [
-  { label: "ReadFlow", href: "/readflow" },
+  { label: "ReadFlow", href: "https://readflow.dk" },
   { label: "Story", href: "/story" },
   
   { label: "About", href: "/about" },
