@@ -3,55 +3,70 @@ import Header from "@/components/Header";
 
 export default function AboutPage() {
   return (
-    <main className="flex min-h-screen flex-col bg-[#f7f4ee]">
+    <main className="flex min-h-screen flex-col bg-canvas">
       <Header />
 
-      <section className="px-6 py-14 sm:py-20">
-        <div className="mx-auto max-w-[980px]">
-          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#1f286c]">
-            About
-          </p>
+      <article>
+        <header className="bg-canvas px-6 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
+          <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-12 lg:gap-12">
+            <div className="lg:col-span-4">
+              <p className="font-mono text-xs font-semibold tracking-[0.18em] text-accent uppercase">
+                About
+              </p>
+              <h1 className="mt-5 text-5xl font-black leading-[0.94] tracking-[-0.05em] text-brand sm:text-7xl">
+                Pensel &amp; Pixel
+              </h1>
+            </div>
 
-          <h1 className="mt-4 text-4xl font-black leading-tight text-[#1f2144] sm:text-6xl">
-            Pensel & Pixel
-          </h1>
+            <div className="max-w-[720px] border-t border-brand/20 pt-7 lg:col-span-7 lg:col-start-6 lg:mt-12">
+              <p className="text-xl leading-relaxed text-ink sm:text-3xl">
+                Pensel & Pixel is a creative digital studio combining web
+                development, illustration and storytelling.
+              </p>
+              <p className="mt-7 text-lg leading-relaxed text-ink/75 sm:text-2xl">
+                We create websites, interactive digital experiences and original
+                products where technology and visual storytelling work together.
+              </p>
+            </div>
+          </div>
+        </header>
 
-          <p className="mt-8 text-lg leading-relaxed text-[#3f3d40] sm:text-2xl">
-            Pensel & Pixel is an educational technology studio combining
-            illustration, storytelling and learning design.
-          </p>
+        <section className="bg-soft px-6 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-28">
+          <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-12 lg:gap-12">
+            <h2 className="text-4xl font-black tracking-[-0.04em] text-brand sm:text-6xl lg:col-span-4">
+              Our Focus
+            </h2>
 
-          <p className="mt-6 text-lg leading-relaxed text-[#3f3d40] sm:text-2xl">
-            We build reading experiences that support different learning needs
-            while keeping the joy and imagination of great stories alive.
-          </p>
+            <div className="max-w-[720px] lg:col-span-7 lg:col-start-6">
+              <p className="text-xl leading-relaxed text-ink sm:text-2xl">
+                We work across web development, creative technology and
+                illustration — from accessible websites and interactive
+                experiences to our own digital products.
+              </p>
+              <p className="mt-7 border-t border-brand/20 pt-7 text-lg leading-relaxed text-ink/75 sm:text-xl">
+                ReadFlow is our first educational technology product, exploring
+                how adaptive technology can support readers without interrupting
+                the story.
+              </p>
+            </div>
+          </div>
+        </section>
 
-          <h2 className="mt-12 text-3xl font-black leading-tight text-[#1f286c] sm:text-5xl">
-            Our Focus
-          </h2>
+        <section className="bg-warm px-6 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-28">
+          <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-12 lg:gap-12">
+            <h2 className="text-4xl font-black tracking-[-0.04em] text-brand sm:text-6xl lg:col-span-4">
+              Founder
+            </h2>
 
-          <p className="mt-6 text-lg leading-relaxed text-[#3f3d40] sm:text-2xl">
-            Our first product, ReadFlow, is designed to help readers stay in the
-            flow by offering support when needed, without interrupting the
-            reading experience.
-          </p>
-
-          <p className="mt-6 text-lg leading-relaxed text-[#3f3d40] sm:text-2xl">
-            We believe technology should feel calm, helpful and human-centered,
-            especially in learning environments.
-          </p>
-
-          <h2 className="mt-12 text-3xl font-black leading-tight text-[#1f286c] sm:text-5xl">
-            Founder
-          </h2>
-
-          <p className="mt-6 mb-20 text-lg leading-relaxed text-[#3f3d40] sm:text-2xl">
-            Pensel & Pixel is founded by Katrine Rosa Beck, a teacher and
-            creator with a passion for inclusive literacy and meaningful digital
-            learning tools.
-          </p>
-        </div>
-      </section>
+            <p className="max-w-[760px] text-xl leading-relaxed text-ink sm:text-3xl lg:col-span-7 lg:col-start-6">
+              Pensel & Pixel was founded by Katrine Rosa Beck, a frontend
+              developer, illustrator and former teacher working at the
+              intersection of technology, visual storytelling and accessible
+              design.
+            </p>
+          </div>
+        </section>
+      </article>
 
       <Footer />
     </main>

@@ -17,11 +17,10 @@ export const metadata: Metadata = {
   description: "Empowering learning through educational technology",
   icons: {
     icon: [
-      { url: "/favicon-64.png", type: "image/png", sizes: "64x64" },
-      { url: "/Pensel_Pixel_favicon.svg", type: "image/svg+xml" },
+      { url: "/Wulfrivfav.png", type: "image/png", sizes: "1254x1254" },
     ],
-    shortcut: "/favicon-64.png",
-    apple: "/favicon-64.png",
+    shortcut: "/Wulfrivfav.png",
+    apple: "/Wulfrivfav.png",
   },
 };
 

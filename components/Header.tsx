@@ -1,10 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 
 const navItems = [
   { label: "ReadFlow", href: "/readflow" },
   { label: "Story", href: "/story" },
-  
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
@@ -12,44 +10,36 @@ const navItems = [
 const mobileNavItems = [
   { label: "ReadFlow", href: "/readflow" },
   { label: "Story", href: "/story" },
-  
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
   return (
-    <header>
-      <div className="bg-[#262f77] px-6 py-8 text-white">
-        <div className="mx-auto max-w-[1280px] text-center">
-          <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl">
-            Pensel & Pixel
-          </h1>
-          <p className="mt-2 text-base text-white/90 sm:text-2xl">
-            Empowering learning through educational technology
-          </p>
-        </div>
+    <header className="relative z-30 bg-warm">
+      <div className="bg-brand px-6 py-2.5 text-center text-xs font-semibold tracking-[0.08em] text-white sm:px-8 sm:text-sm">
+        Siden er under ombygning.
       </div>
 
-      <nav className="border-b border-black/10 bg-white">
-        <div className="mx-auto flex max-w-[1280px] flex-wrap items-center justify-center gap-4 px-6 py-4 md:justify-between md:gap-6">
-          <div className="flex items-center gap-3">
-            <Link href="/" aria-label="Go to homepage">
-              <Image
-                src="/PenselLogo.svg"
-                alt="Pensel & Pixel logo"
-                width={250}
-                height={68}
-                className="h-14 w-auto"
-                priority
-              />
-            </Link>
-          </div>
+      <nav aria-label="Primary navigation" className="border-b border-brand/10">
+        <div className="mx-auto flex min-h-24 max-w-[1240px] items-center justify-between gap-8 px-6 py-6 sm:min-h-28 sm:px-8 sm:py-7 lg:px-10">
+          <Link
+            href="/"
+            aria-label="Pensel & Pixel — go to homepage"
+            className="shrink-0 text-sm font-black tracking-[0.16em] uppercase focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:text-base"
+          >
+            <span className="text-brand">Pensel</span>{" "}
+            <span className="text-coral">&amp;</span>{" "}
+            <span className="text-accent">Pixel</span>
+          </Link>
 
-          <ul className="hidden flex-wrap items-center gap-5 text-lg text-[#323232] md:flex md:gap-8 md:text-xl">
+          <ul className="hidden items-center gap-7 text-sm font-semibold text-brand md:flex lg:gap-9">
             {navItems.map((item) => (
               <li key={item.label}>
-                <Link href={item.href} className="transition hover:text-[#262f77]">
+                <Link
+                  href={item.href}
+                  className="border-b border-transparent pb-1 transition-colors hover:border-accent hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                >
                   {item.label}
                 </Link>
               </li>
@@ -58,13 +48,16 @@ export default function Header() {
         </div>
       </nav>
 
-      <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-black/10 bg-white/95 backdrop-blur md:hidden">
-        <ul className="mx-auto grid max-w-[560px] grid-cols-5">
+      <nav
+        aria-label="Mobile navigation"
+        className="fixed inset-x-0 bottom-0 z-40 border-t border-brand/15 bg-warm/95 backdrop-blur md:hidden"
+      >
+        <ul className="mx-auto grid max-w-[560px] grid-cols-4">
           {mobileNavItems.map((item) => (
             <li key={item.label}>
               <Link
                 href={item.href}
-                className="block px-2 py-3 text-center text-sm font-medium text-[#2e2e2e] transition hover:text-[#262f77]"
+                className="block border-t-2 border-transparent px-2 py-4 text-center font-mono text-[0.7rem] font-semibold tracking-[0.08em] text-ink uppercase transition-colors hover:border-accent hover:text-brand focus-visible:border-accent focus-visible:outline-none"
               >
                 {item.label}
               </Link>
