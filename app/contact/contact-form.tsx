@@ -1,11 +1,13 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 import { submitContactForm } from "@/app/contact/actions";
 import { initialContactFormState } from "@/app/contact/form-state";
 
 export default function ContactForm() {
+  const router = useRouter();
   const [state, formAction, pending] = useActionState(
     submitContactForm,
     initialContactFormState
@@ -15,6 +17,12 @@ export default function ContactForm() {
   const errors = state?.errors ?? initialContactFormState.errors;
   const statusMessage = state?.message ?? "";
   const isSuccess = state?.success ?? false;
+
+  useEffect(() => {
+    if (isSuccess) {
+      router.push("/contact/thanks");
+    }
+  }, [isSuccess, router]);
 
   return (
     <form action={formAction} className="mt-10 rounded-2xl bg-white p-6 sm:p-8">
