@@ -1,17 +1,53 @@
 @import "tailwindcss";
 
+:root {
+  /* Core palette */
+  --rf-ink: #252B36;
+  --rf-jade: #3B8E7A;
+  --rf-ivory: #E9E4D3;
+  --rf-rust: #D16C4D;
+  --rf-lilac: #C5B4DD;
+
+  /* Extended palette */
+  --rf-lavender: #808BC5;
+  --rf-mustard: #EAC119;
+  --rf-sky: #9ED6DF;
+  --rf-pink: #EAA7C7;
+  --rf-tea: #245E55;
+  --rf-tangerine: #ED773C;
+  --rf-red: #C63F3E;
+  --rf-seashell: #EAE4DA;
+
+  /* Semantic colors */
+  --rf-background: var(--rf-ivory);
+  --rf-surface: #FFFFFF;
+  --rf-surface-alt: var(--rf-seashell);
+  --rf-text: var(--rf-ink);
+  --rf-text-inverse: #FFFFFF;
+  --rf-primary: var(--rf-tea);
+  --rf-accent: var(--rf-rust);
+  --rf-border: #C9C5B9;
+
+  /* Layout */
+  --rf-radius-sm: 10px;
+  --rf-radius-md: 18px;
+  --rf-radius-lg: 28px;
+  --rf-content-width: 1440px;
+}
+
 @theme inline {
-  --color-canvas: #f7f4ee;
-  --color-ink: #1f2144;
-  --color-brand: #262f77;
-  --color-accent: #09a1a1;
-  --color-coral: #f96e81;
-  --color-warm: #f6c992;
-  --color-soft: #acc0d3;
-  --color-error: #af1e3a;
-  --color-white: #ffffff;
-  --color-background: var(--color-canvas);
-  --color-foreground: var(--color-ink);
+  --color-canvas: var(--rf-background);
+  --color-ink: var(--rf-ink);
+  --color-brand: var(--rf-tea);
+  --color-accent: var(--rf-tea);
+  --color-coral: var(--rf-rust);
+  --color-warm: var(--rf-seashell);
+  --color-soft: var(--rf-lilac);
+  --color-pink: var(--rf-pink);
+  --color-error: var(--rf-red);
+  --color-white: var(--rf-surface);
+  --color-background: var(--rf-background);
+  --color-foreground: var(--rf-text);
   --font-sans: var(--font-atkinson);
   --font-mono: var(--font-geist-mono);
 }
@@ -80,5 +116,59 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .typewriter-caret {
     animation: none;
+  }
+}
+
+.rf-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 12px 24px;
+  border: 2px solid transparent;
+  border-radius: var(--rf-radius-sm);
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.rf-button--primary {
+  background: var(--rf-primary);
+  color: var(--rf-text-inverse);
+}
+
+.rf-button--primary:hover {
+  background: var(--rf-ink);
+  transform: translateY(-2px);
+}
+
+.rf-button--secondary {
+  border-color: var(--rf-ink);
+  background: transparent;
+  color: var(--rf-ink);
+}
+
+.rf-button--secondary:hover {
+  background: var(--rf-seashell);
+  transform: translateY(-2px);
+}
+
+.rf-button:focus-visible {
+  outline: 3px solid var(--rf-rust);
+  outline-offset: 4px;
+}
+
+#selected-work {
+  scroll-margin-top: 24px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rf-button {
+    transition: none;
+  }
+
+  .rf-button:hover {
+    transform: none;
   }
 }

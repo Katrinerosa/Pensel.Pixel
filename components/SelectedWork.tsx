@@ -16,7 +16,7 @@ const projects = [
     category: "INTERACTIVE · STATE · RANDOMISATION",
     description:
       "An illustrated experience exploring interaction, state and playful randomisation.",
-    colour: "bg-[#d396a6]",
+    colour: "bg-pink",
   },
   {
     number: "03",

@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
-import { Atkinson_Hyperlegible_Next, Geist_Mono } from "next/font/google";
+import { Atkinson_Hyperlegible_Next, Geist_Mono, Lexend } from "next/font/google";
 import "./globals.css";
 
 const atkinson = Atkinson_Hyperlegible_Next({
   variable: "--font-atkinson",
   subsets: ["latin"],
+});
+
+const lexend = Lexend({
+  variable: "--font-lexend",
+  subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
@@ -32,7 +38,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${atkinson.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${atkinson.variable} ${geistMono.variable} ${lexend.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
