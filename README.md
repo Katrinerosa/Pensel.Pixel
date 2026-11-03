@@ -42,3 +42,22 @@ function greet(name: string): string {
 ```
 
 Her siger `name: string`, at funktionen forventer tekst, og `: string` efter parentesen siger, at funktionen returnerer tekst.
+
+## Navigation og services
+
+Hovedmenuen bruger Services (`/#services`), Work (`/#selected-work`), ReadFlow (`https://readflow.dk`), About og Let's talk (kontakt). De samme punkter vises i mobilens bundnavigation. Services præsenterer tre ydelser uden prisliste, med en genvej til kontakt. ReadFlow har sin egen case på `/readflow` og er det første projekt i Selected Work. Founder-sektionen linker til det personlige portfolio på `https://katrinerosa.com`.
+
+Projektbillederne bruger Katrines originale illustrationer. Tarot- og Haunted House-billeder er kopier fra portfolioets offentlige projektfiler; Luna-omslagene er kopier fra ReadFlow-frontenden. Originalerne er bevaret.
+
+## Kontaktformular og mailopsætning
+
+Formularen validerer felter både i browseren og på serveren og viser kun takkesiden, når mailafsendelsen er lykkedes. Mailafsendelse kræver miljøvariabler hos hostingudbyderen eller i en lokal `.env.local`:
+
+- `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`
+- `SMTP_SECURE`: `true` for implicit TLS, normalt port 465; ellers STARTTLS, normalt port 587.
+- `CONTACT_TO`: modtageradressen.
+- `CONTACT_FROM`: en afsenderadresse godkendt af mailudbyderen; SMTP-brugeren bruges som fallback.
+
+Adgangskoder og `.env`-filer skal holdes uden for Git. Manglende mailopsætning giver en reel fejlbesked; formularen foregiver ikke, at beskeden er sendt. Endelig maillevering kræver kontrol med den valgte mailudbyder.
+
+Den konkrete opsætning for hello@penselogpixel.dk på Simply.com og den nuværende Netlify-hosting findes i [docs/simply-smtp.md](docs/simply-smtp.md).

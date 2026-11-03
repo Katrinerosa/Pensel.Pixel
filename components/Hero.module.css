@@ -112,9 +112,8 @@
   right: 2%;
   width: 22%;
   aspect-ratio: 1;
-  border-radius: 0 50% 0 50%;
+  border-radius: 50%;
   background: var(--rf-jade);
-  transform: rotate(12deg);
 }
 
 .orbit {
@@ -127,29 +126,7 @@
   border-radius: 50%;
 }
 
-.spark {
-  position: absolute;
-  z-index: 2;
-  top: 1%;
-  right: 0;
-  width: 15%;
-  color: var(--rf-rust);
-  transform: rotate(12deg);
-}
 
-.artLabel {
-  position: absolute;
-  z-index: 2;
-  top: 10%;
-  left: 0;
-  max-width: 15rem;
-  padding: 11px 16px;
-  border: 1px solid var(--rf-ink);
-  background: var(--rf-sky);
-  font-size: clamp(11px, 1vw, 14px);
-  font-weight: 700;
-  transform: rotate(-8deg);
-}
 
 .illustration {
   position: absolute;
@@ -305,9 +282,6 @@
     margin-inline: auto;
   }
 
-  .artLabel {
-    font-size: clamp(10px, 2.5vw, 14px);
-  }
 
   .projectTitle {
     font-size: clamp(13px, 3.5vw, 20px);

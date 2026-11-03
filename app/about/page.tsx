@@ -1,5 +1,6 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Founder from "@/components/Founder";
 
 export default function AboutPage() {
   return (
@@ -52,20 +53,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="bg-warm px-6 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-28">
-          <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-12 lg:gap-12">
-            <h2 className="text-4xl font-black tracking-[-0.04em] text-brand sm:text-6xl lg:col-span-4">
-              Founder
-            </h2>
-
-            <p className="max-w-[760px] text-xl leading-relaxed text-ink sm:text-3xl lg:col-span-7 lg:col-start-6">
-              Pensel & Pixel was founded by Katrine Rosa Beck, a frontend
-              developer, illustrator and former teacher working at the
-              intersection of technology, visual storytelling and accessible
-              design.
-            </p>
-          </div>
-        </section>
+        <Founder />
       </article>
 
       <Footer />

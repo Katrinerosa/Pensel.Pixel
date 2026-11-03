@@ -159,6 +159,7 @@ body {
   outline-offset: 4px;
 }
 
+#services,
 #selected-work {
   scroll-margin-top: 24px;
 }

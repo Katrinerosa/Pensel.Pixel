@@ -5,13 +5,14 @@ import { z } from "zod";
 import type { ContactFormState } from "@/app/contact/form-state";
 
 const contactSchema = z.object({
-  name: z.string().trim().min(2, "Please enter your name."),
-  email: z.string().trim().email("Please enter a valid email address."),
-  subject: z.string().trim().min(3, "Please add a short subject."),
+  name: z.string().trim().min(2, "Please enter your name.").max(120, "Please use no more than 120 characters."),
+  email: z.string().trim().max(254, "Please enter a shorter email address.").email("Please enter a valid email address."),
+  subject: z.string().trim().min(3, "Please add a short subject.").max(160, "Please use no more than 160 characters."),
   message: z
     .string()
     .trim()
-    .min(20, "Please write at least 20 characters."),
+    .min(20, "Please write at least 20 characters.")
+    .max(10000, "Please use no more than 10,000 characters."),
 });
 
 export async function submitContactForm(
@@ -39,24 +40,26 @@ export async function submitContactForm(
   const smtpHost = process.env.SMTP_HOST ?? process.env.SMPT_HOST;
   const smtpPort = Number(process.env.SMTP_PORT ?? process.env.SMPT_PORT ?? "587");
   const smtpSecure =
-    (process.env.SMTP_SECURE ?? process.env.SMPT_SECURE ?? "false") === "true";
+    (process.env.SMTP_SECURE ?? process.env.SMPT_SECURE ?? String(smtpPort === 465)) === "true";
   const smtpUser = process.env.SMTP_USER ?? process.env.SMPT_USER;
   const smtpPass = process.env.SMTP_PASS ?? process.env.SMPT_PASS;
   const contactTo = process.env.CONTACT_TO;
   const contactFrom = process.env.CONTACT_FROM ?? smtpUser;
 
-  if (!smtpHost || !smtpUser || !smtpPass || !contactTo || !contactFrom) {
+  if (!smtpHost || !smtpUser || !smtpPass || !contactTo || !contactFrom || !Number.isInteger(smtpPort) || smtpPort < 1 || smtpPort > 65535) {
     const missingKeys = [
       !smtpHost ? "SMTP_HOST" : null,
       !smtpUser ? "SMTP_USER" : null,
       !smtpPass ? "SMTP_PASS" : null,
       !contactTo ? "CONTACT_TO" : null,
       !contactFrom ? "CONTACT_FROM" : null,
+      !Number.isInteger(smtpPort) || smtpPort < 1 || smtpPort > 65535 ? "SMTP_PORT" : null,
     ].filter(Boolean);
 
+    console.error("Contact mail configuration incomplete", { missingKeys });
     return {
       success: false,
-      message: `Mail is not configured yet. Missing: ${missingKeys.join(", ")}`,
+      message: "Your message could not be sent right now. Please try again later, or use the contact links on this page.",
       errors: {},
       values: rawValues,
     };
@@ -67,6 +70,10 @@ export async function submitContactForm(
     port: smtpPort,
     secure: smtpSecure,
     requireTLS: !smtpSecure,
+    connectionTimeout: 10000,
+    greetingTimeout: 10000,
+    socketTimeout: 20000,
+    tls: { minVersion: "TLSv1.2" },
     auth: {
       user: smtpUser,
       pass: smtpPass,
@@ -74,7 +81,7 @@ export async function submitContactForm(
   });
 
   try {
-    await transporter.sendMail({
+    const result = await transporter.sendMail({
       from: contactFrom,
       to: contactTo,
       replyTo: validated.data.email,
@@ -87,6 +94,9 @@ export async function submitContactForm(
         validated.data.message,
       ].join("\n"),
     });
+    if (!Array.isArray(result.accepted) || result.accepted.length === 0) {
+      throw new Error("SMTP server did not accept the recipient");
+    }
   } catch (error) {
     const smtpError = error as { code?: string; message?: string };
     console.error("Contact form SMTP send failed", {
@@ -97,7 +107,7 @@ export async function submitContactForm(
     return {
       success: false,
       message:
-        "Could not send email right now. Please try again in a moment, or contact us directly at hello@penselogpixel.dk.",
+        "Could not send email right now. Please try again in a moment, or use the contact links on this page.",
       errors: {},
       values: rawValues,
     };

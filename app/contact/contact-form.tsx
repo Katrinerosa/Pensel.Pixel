@@ -25,7 +25,8 @@ export default function ContactForm() {
   }, [isSuccess, router]);
 
   return (
-    <form action={formAction}>
+    <form action={formAction} aria-busy={pending}>
+      <p className="mb-6 text-sm leading-6 text-ink/75">You can also email <a href="mailto:hello@penselogpixel.dk" className="font-semibold text-brand underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">hello@penselogpixel.dk</a>.</p>
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="block text-sm font-semibold text-ink">
@@ -34,6 +35,9 @@ export default function ContactForm() {
           <input
             id="name"
             name="name"
+          required
+            minLength={2}
+            maxLength={120}
             type="text"
             autoComplete="name"
             defaultValue={values.name}
@@ -55,6 +59,8 @@ export default function ContactForm() {
           <input
             id="email"
             name="email"
+          required
+            maxLength={254}
             type="email"
             autoComplete="email"
             defaultValue={values.email}
@@ -77,6 +83,9 @@ export default function ContactForm() {
         <input
           id="subject"
           name="subject"
+          required
+          minLength={3}
+          maxLength={160}
           type="text"
           defaultValue={values.subject}
           className="mt-2 w-full border border-brand/25 bg-white px-4 py-3 text-base text-ink transition-colors focus:border-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/35"
@@ -97,6 +106,9 @@ export default function ContactForm() {
         <textarea
           id="message"
           name="message"
+          required
+          minLength={20}
+          maxLength={10000}
           rows={6}
           defaultValue={values.message}
           className="mt-2 w-full border border-brand/25 bg-white px-4 py-3 text-base text-ink transition-colors focus:border-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/35"

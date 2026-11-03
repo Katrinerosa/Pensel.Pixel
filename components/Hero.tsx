@@ -31,15 +31,15 @@ export default function Hero() {
           </h1>
 
           <p className={styles.description}>
-            Websites and digital experiences shaped by code, illustration and storytelling.
+            Creative websites, accessible digital experiences and visual storytelling for brands, educators and ambitious ideas.
           </p>
 
           <div className={styles.actions}>
-            <Link href="#selected-work" className="rf-button rf-button--primary">
-              Explore my work <Arrow />
-            </Link>
-            <Link href="/contact" className="rf-button rf-button--secondary">
+            <Link href="/contact" className="rf-button rf-button--primary">
               Let&apos;s talk <Arrow diagonal />
+            </Link>
+            <Link href="#selected-work" className="rf-button rf-button--secondary">
+              Explore my work <Arrow />
             </Link>
           </div>
 
@@ -51,10 +51,6 @@ export default function Hero() {
           <div className={styles.sun} aria-hidden="true" />
           <div className={styles.corner} aria-hidden="true" />
           <div className={styles.orbit} aria-hidden="true" />
-          <svg className={styles.spark} viewBox="0 0 100 100" fill="none" aria-hidden="true">
-            <path d="M50 5v90M5 50h90M18 18l64 64M18 82l64-64" stroke="currentColor" strokeWidth="14" />
-          </svg>
-          <span className={styles.artLabel}>A little imagination goes a long way.</span>
           <Image
             src="/Wulfriclunaread.png"
             alt="Luna reading a book, nestled beside the wolf Wulfric"
