@@ -1,0 +1,56 @@
+{
+  "luna-reading": {
+    "source": "Wulfriclunaread.png",
+    "width": 2974,
+    "height": 2131,
+    "widths": [
+      480,
+      800,
+      1200,
+      1440
+    ],
+    "quality": 70,
+    "alphaQuality": 62
+  },
+  "luna-story": {
+    "source": "LunaWulfricReading.png",
+    "width": 3000,
+    "height": 4000,
+    "widths": [
+      480,
+      800,
+      1120
+    ],
+    "quality": 78
+  },
+  "haunted-house": {
+    "source": "projects/haunted-house/preview.jpg",
+    "width": 1920,
+    "height": 1080,
+    "widths": [
+      480,
+      800
+    ],
+    "quality": 77
+  },
+  "luna-magic-cover": {
+    "source": "projects/readflow/luna-is-finding-her-magic.webp",
+    "width": 1410,
+    "height": 2250,
+    "widths": [
+      320,
+      640
+    ],
+    "quality": 83
+  },
+  "luna-zombie-cover": {
+    "source": "projects/readflow/luna-and-the-zombie.webp",
+    "width": 1410,
+    "height": 2250,
+    "widths": [
+      320,
+      640
+    ],
+    "quality": 83
+  }
+}

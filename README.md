@@ -63,6 +63,8 @@ Hovedmenuen bruger Services (`/#services`), Work (`/#selected-work`), ReadFlow (
 
 Projektbillederne bruger Katrines originale illustrationer. Tarot- og Haunted House-billeder er kopier fra portfolioets offentlige projektfiler; Luna-omslagene er kopier fra ReadFlow-frontenden. Originalerne er bevaret.
 
+De responsive WebP-filer og faneikoner genereres med `npm run images:optimize`. Find originaler og de ønskede billedbredder i [billedoversigten](components/studio-images.json).
+
 ## Kontaktformular og mailopsætning
 
 Formularen validerer felter både i browseren og på serveren og viser kun takkesiden, når mailafsendelsen er lykkedes. Mailafsendelse kræver miljøvariabler hos hostingudbyderen eller i en lokal `.env.local`:

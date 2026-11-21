@@ -1,4 +1,4 @@
-import Image from "next/image";
+import StudioImage from "@/components/StudioImage";
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -50,11 +50,9 @@ export default function StoryPage() {
         <section className="px-6 py-20 sm:px-8 sm:py-28 lg:px-12">
           <div className="mx-auto grid max-w-[1240px] items-center gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="bg-soft px-6 pt-10 sm:px-10 lg:col-span-5">
-              <Image
-                src="/LunaWulfricReading.png"
+              <StudioImage
+                image="luna-story"
                 alt="Luna reading alongside Wulfric"
-                width={3000}
-                height={4000}
                 sizes="(min-width: 1024px) 38vw, 90vw"
                 className="mx-auto h-auto max-h-[720px] w-auto max-w-full object-contain"
               />

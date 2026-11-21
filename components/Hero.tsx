@@ -1,4 +1,4 @@
-import Image from "next/image";
+import StudioImage from "@/components/StudioImage";
 import Link from "next/link";
 import styles from "./Hero.module.css";
 
@@ -36,13 +36,11 @@ export default function Hero() {
           <div className={styles.sun} aria-hidden="true" />
           <div className={styles.corner} aria-hidden="true" />
           <div className={styles.orbit} aria-hidden="true" />
-          <Image
-            src="/Wulfriclunaread.png"
+          <StudioImage
+            image="luna-reading"
             alt="Luna reading a book, nestled beside the wolf Wulfric"
-            width={2974}
-            height={2131}
-            preload
-            sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1440px) 55vw, 760px"
+            priority
+            sizes="(max-width: 768px) min(100vw, 605px), (max-width: 1024px) calc(59.4vw - 40px), (max-width: 1536px) calc(59.4vw - 76px), 837px"
             className={styles.illustration}
           />
           <Link href="/readflow" className={styles.project}>

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import StudioImage from "@/components/StudioImage";
 import Link from "next/link";
 
 const projects = [
@@ -21,7 +21,7 @@ const projects = [
     contribution: "Product concept, UX, original illustration and product frontend, connected to an existing reader.",
     outcome: "A working reading prototype. Adaptive support and the chatbot are still in development.",
     colour: "bg-soft",
-    image: "/Wulfriclunaread.png",
+    image: "luna-reading",
     imageAlt: "Luna reading a book beside Wulfric, from the ReadFlow universe",
     href: "/readflow",
     cta: "Read the case",
@@ -33,12 +33,12 @@ const projects = [
     contribution: "Illustration and creative frontend development, bringing interaction, animation and sound together.",
     outcome: "An interactive experiment showing how a visual story can become part of the interface.",
     colour: "bg-warm",
-    image: "/projects/haunted-house/preview.jpg",
+    image: "haunted-house",
     imageAlt: "The illustrated haunted house from the interactive Haunted House experience",
     href: "https://katrinerosa.com/haunted-house",
     cta: "Explore the house",
   },
-];
+] as const;
 
 export default function SelectedWork() {
   return (
@@ -53,7 +53,14 @@ export default function SelectedWork() {
             <article key={project.title} className="flex min-w-0 flex-col">
               <Link href={project.href} aria-label={project.cta} className={`relative flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-[var(--rf-radius-md)] focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-coral ${project.colour}`}>
                 {project.image ? (
-                  <Image src={project.image} alt={project.imageAlt} fill sizes="(min-width: 1280px) 400px, (min-width: 768px) 32vw, calc(100vw - 48px)" className={project.title === "Haunted House" ? "object-cover" : "object-contain p-5"} />
+                  <StudioImage
+                    image={project.image}
+                    alt={project.imageAlt}
+                    sizes="(min-width: 1280px) 400px, (min-width: 768px) 32vw, calc(100vw - 48px)"
+                    className={project.image === "haunted-house"
+                      ? "absolute inset-0 h-full w-full object-cover"
+                      : "absolute inset-0 h-full w-full object-contain p-5"}
+                  />
                 ) : (
                   <div aria-hidden="true" className="flex h-full w-full flex-col justify-between p-7 text-brand sm:p-8">
                     <span className="text-sm font-semibold">Design · Code · Illustration</span>

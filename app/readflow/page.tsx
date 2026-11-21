@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import StudioImage from "@/components/StudioImage";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -34,7 +34,13 @@ export default function ReadflowPage() {
               <a href="https://readflow.dk" className="rf-button rf-button--primary mt-8">Explore ReadFlow <span aria-hidden="true">↗</span></a>
               <p className="mt-5 max-w-xl text-sm leading-6 text-ink/75">A working reading prototype. Adaptive support and the chatbot are still in development.</p>
             </div>
-            <Image src="/Wulfriclunaread.png" alt="Luna reading alongside Wulfric in the ReadFlow story universe" width={2974} height={2131} preload sizes="(min-width: 1024px) 50vw, calc(100vw - 48px)" className="h-auto w-full" />
+            <StudioImage
+              image="luna-reading"
+              alt="Luna reading alongside Wulfric in the ReadFlow story universe"
+              priority
+              sizes="(min-width: 1340px) 600px, (min-width: 1024px) calc(50vw - 68px), calc(100vw - 48px)"
+              className="h-auto w-full"
+            />
           </div>
         </header>
 
@@ -62,8 +68,8 @@ export default function ReadflowPage() {
             </div>
             <div className="mt-12 grid items-center gap-8 rounded-[var(--rf-radius-md)] bg-warm p-6 sm:p-10 lg:grid-cols-2">
               <div className="grid grid-cols-2 items-center gap-5 sm:gap-8">
-                <Image src="/projects/readflow/luna-is-finding-her-magic.webp" width={1410} height={2250} unoptimized alt="Cover of Luna Is Finding Her Magic" sizes="(min-width: 1024px) 250px, 40vw" className="h-auto w-full" />
-                <Image src="/projects/readflow/luna-and-the-zombie.webp" width={1410} height={2250} unoptimized alt="Cover of Luna and the Zombie" sizes="(min-width: 1024px) 250px, 40vw" className="h-auto w-full" />
+                <StudioImage image="luna-magic-cover" alt="Cover of Luna Is Finding Her Magic" sizes="(min-width: 1024px) 250px, 40vw" className="h-auto w-full" />
+                <StudioImage image="luna-zombie-cover" alt="Cover of Luna and the Zombie" sizes="(min-width: 1024px) 250px, 40vw" className="h-auto w-full" />
               </div>
               <div>
                 <h3 className="text-3xl font-bold tracking-tight text-brand">An illustrated world, connected to a reader.</h3>
