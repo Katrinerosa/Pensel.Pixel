@@ -3,7 +3,7 @@ import Link from "next/link";
 const steps = [
   { title: "Tell me about your project", description: "We talk about your business, your visitors and what you need your website to do." },
   { title: "Agree on the scope", description: "You receive a proposal with the deliverables, price and timeline, so you can decide before the work starts." },
-  { title: "Design, build and review", description: "I share progress for your feedback as the design and website take shape. We check the key journeys together." },
+  { title: "Design, build and review", description: "I set the colour palette at the start of the project and carry it through the site. You see the design and build as they take shape." },
   { title: "Launch and handover", description: "We prepare the site for launch and agree on the handover, including how to update it and any ongoing support." },
 ];
 

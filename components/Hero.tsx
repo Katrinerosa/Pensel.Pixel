@@ -16,7 +16,7 @@ export default function Hero() {
           </h1>
 
           <p className={styles.description}>
-            I design and build responsive websites, combining frontend development, illustration and a personal approach.
+            I design and build responsive websites and help teams improve existing sites with React and Next.js.
           </p>
 
           <div className={styles.actions}>
@@ -28,7 +28,7 @@ export default function Hero() {
             </Link>
           </div>
 
-          <p className={styles.note}>Working remotely with clients and teams. From first idea to handover.</p>
+          <p className={styles.note}>Available for remote website projects and freelance frontend work.</p>
         </div>
 
         <div className={styles.artwork}>

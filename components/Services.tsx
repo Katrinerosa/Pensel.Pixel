@@ -10,7 +10,7 @@ const services = [
   {
     title: "A better existing website",
     description: "Focused improvements when your website needs attention, whether that is one page or a frustrating user journey.",
-    deliverables: ["Page layouts and navigation", "Forms, feedback and interaction", "Accessibility and performance improvements"],
+    deliverables: ["React and Next.js pages and features", "Forms, navigation and mobile layouts", "Accessibility and performance improvements"],
     colour: "bg-pink",
   },
   {

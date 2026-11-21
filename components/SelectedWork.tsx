@@ -84,7 +84,13 @@ export default function SelectedWork() {
             </article>
           ))}
         </div>
-        <p className="mt-12 border-t border-brand/20 pt-6 text-base leading-7 text-ink/75">For another illustrated experiment, <a href="https://katrinerosa.com/tarot" className="font-semibold text-brand underline decoration-coral decoration-2 underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">explore my Tarot project</a>.</p>
+        <div className="mt-12 flex flex-col gap-4 border-t border-brand/20 pt-6 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
+          <div className="max-w-2xl">
+            <h3 className="text-xl font-bold text-brand">A lighter Tarot experience</h3>
+            <p className="mt-2 text-base leading-7 text-ink/75">I reduced the total size of the illustrated Tarot deck&apos;s images by 93% and made each card turn once its artwork is ready.</p>
+          </div>
+          <a href="https://katrinerosa.com/tarot" className="inline-flex min-h-11 shrink-0 items-center self-start font-semibold text-brand underline decoration-coral decoration-2 underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:self-center">Try the Tarot project <span aria-hidden="true" className="ml-2">↗</span></a>
+        </div>
       </div>
     </section>
   );
