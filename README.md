@@ -1,47 +1,61 @@
 # Pensel & Pixel
 
-Pensel & Pixel er en Next.js-app med fokus pa inkluderende laering, storytelling og ReadFlow-konceptet.
+Pensel & Pixel er et kreativt webstudio med fokus på inkluderende læring, storytelling og ReadFlow-konceptet. Denne Next.js-app præsenterer studiets ydelser, udvalgte projekter og en kontaktvej til nye samarbejder.
+
+[Personligt portfolio](https://katrinerosa.com) · [ReadFlow](https://readflow.dk)
+
+## Det viser projektet
+
+- En komponentopdelt forside med services, cases, founder-sektion og kontakt.
+- Navigation tilpasset både desktop og mobil.
+- En ReadFlow-case, der forbinder produktidé og visuel fortælling.
+- En kontaktformular med validering, serverbehandling og fejlfeedback.
+
+## Teknologier
+
+Next.js 16 med App Router, React 19, TypeScript og Tailwind CSS 4. Kontaktformularen bruger Zod til servervalidering og Nodemailer til SMTP.
 
 ## Routes
 
-- `/` - landing page
-- `/readflow` - ReadFlow-side
-- `/story` - My Story-side
+| Route | Indhold |
+| --- | --- |
+| `/` | Forside med services og udvalgte projekter |
+| `/readflow` | ReadFlow-case |
+| `/story` | My Story |
+| `/about` | Om studiet |
+| `/contact` | Kontaktformular |
+| `/contact/thanks` | Kvittering efter vellykket afsendelse |
 
-## Run Locally
+## Start lokalt
 
 ```bash
-npm install
+git clone https://github.com/Katrinerosa/Pensel.Pixel.git
+cd Pensel.Pixel
+npm ci
 npm run dev
 ```
 
-Open `http://localhost:3000` in your browser.
+Åbn [http://localhost:3000](http://localhost:3000). Kontaktformularens mailafsendelse kræver SMTP-opsætningen nedenfor.
 
-## Build
+## Kontrol og build
 
 ```bash
+npm run lint
+npm run test:contact
 npm run build
 ```
 
-## Lille forklaring om TypeScript
+Kontaktformularens automatiske tests bruger en simuleret mailtransport og dækker ugyldige felter, manglende konfiguration, STARTTLS, afsender og reply-to samt fejlet afsendelse og afvist modtager. De sender ikke rigtige mails og bekræfter derfor ikke levering hos mailudbyderen.
 
-TypeScript er JavaScript med typer.
+## Find vej i koden
 
-Kort sagt betyder det:
-
-- Du kan beskrive, hvilken type data en variabel eller funktion forventer.
-- Du far fejl tidligere (mens du koder), i stedet for forst i browseren.
-- Koden bliver lettere at vedligeholde, nar projektet vokser.
-
-Eksempel:
-
-```ts
-function greet(name: string): string {
-	return `Hello ${name}`;
-}
-```
-
-Her siger `name: string`, at funktionen forventer tekst, og `: string` efter parentesen siger, at funktionen returnerer tekst.
+| Område | Filer |
+| --- | --- |
+| Sidens opbygning | [app/page.tsx](app/page.tsx) og [components/](components) |
+| Kontaktformularens UI | [app/contact/contact-form.tsx](app/contact/contact-form.tsx) |
+| Validering og mailafsendelse | [app/contact/actions.ts](app/contact/actions.ts) |
+| Automatiske kontakt-tests | [scripts/contact.test.mjs](scripts/contact.test.mjs) |
+| Mailopsætning | [docs/simply-smtp.md](docs/simply-smtp.md) |
 
 ## Navigation og services
 
