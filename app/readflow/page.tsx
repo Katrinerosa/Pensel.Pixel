@@ -16,8 +16,9 @@ const decisions = [
 ];
 const stack = [
   { title: "Product frontend", description: "Next.js · React · TypeScript" },
-  { title: "Existing reader & content", description: "Vue · Directus" },
-  { title: "Deployment", description: "Docker · Caddy · Hetzner" },
+  { title: "Reader", description: "Vue 3 · TypeScript · Vite · Pinia · Vue Router" },
+  { title: "Book content", description: "Directus CMS" },
+  { title: "Hosting & deployment", description: "Docker Compose · Caddy · Hetzner · Cloudflare" },
 ];
 
 export default function ReadflowPage() {
@@ -83,8 +84,8 @@ export default function ReadflowPage() {
         <section className="bg-warm px-6 py-20 sm:px-8 sm:py-24 lg:px-12">
           <div className="mx-auto max-w-[1240px]">
             <h2 className="text-4xl font-black tracking-[-0.04em] text-brand sm:text-6xl">Built across design & code.</h2>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink/75">The work combines product thinking, UX, original illustration and frontend development, connecting a new interface to the existing reading experience.</p>
-            <dl className="mt-9 grid gap-6 md:grid-cols-3">
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink/75">I developed the product concept, designed the UX, created the illustrations and built the Next.js frontend. It connects to the existing Vue 3 reader, which I maintain and continue to develop.</p>
+            <dl className="mt-9 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
               {stack.map((item) => <div key={item.title} className="border-t border-brand/25 pt-5"><dt className="text-lg font-bold text-brand">{item.title}</dt><dd className="mt-3 text-base leading-7 text-ink/75">{item.description}</dd></div>)}
             </dl>
           </div>
