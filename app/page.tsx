@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import StudioUpdates from "@/components/StudioUpdates";
 import Services from "@/components/Services";
 import Founder from "@/components/Founder";
+import Process from "@/components/Process";
 
 export const metadata: Metadata = {
   title: "Websites & creative frontend development | Pensel & Pixel",
@@ -19,6 +20,7 @@ export default function Home() {
       <Hero />
       <Services />
       <SelectedWork />
+      <Process />
       <Founder showAboutLink />
       <StudioUpdates />
       <Footer />
