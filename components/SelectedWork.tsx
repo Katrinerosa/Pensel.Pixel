@@ -18,7 +18,7 @@ const projects = [
     title: "ReadFlow",
     category: "OWN PRODUCT · LEARNING",
     brief: "Make it more inviting for children to choose a story and start reading.",
-    contribution: "Product concept, UX, original illustration and product frontend, connected to an existing reader.",
+    contribution: "Product concept, UX and original illustrations. I built the Next.js frontend and connected it to the existing reader, which I maintain and continue to develop.",
     outcome: "A working reading prototype. Adaptive support and the chatbot are still in development.",
     colour: "bg-soft",
     image: "luna-reading",
