@@ -2,48 +2,33 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./Hero.module.css";
 
-function Arrow({ diagonal = false }: { diagonal?: boolean }) {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d={diagonal ? "M6 18 18 6M6 6h12v12" : "M4 12h15m-6-6 6 6-6 6"}
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
 export default function Hero() {
   return (
     <section aria-labelledby="home-hero-title" className={styles.hero}>
       <div className={styles.inner}>
         <div className={styles.copy}>
           <p className={styles.eyebrow}>
-            <span aria-hidden="true" /> Independent creative studio
+            Pensel &amp; Pixel · Independent creative studio
           </p>
 
           <h1 id="home-hero-title" className={styles.title}>
-            <span>Pensel</span>
-            <span><span className={styles.ampersand}>&amp;</span> Pixel<span className={styles.period}>.</span></span>
+            Websites for small businesses &amp; <span className={styles.highlight}>creative people.</span>
           </h1>
 
           <p className={styles.description}>
-            Creative websites, accessible digital experiences and visual storytelling for brands, educators and ambitious ideas.
+            I design and build responsive websites, combining frontend development, illustration and a personal approach.
           </p>
 
           <div className={styles.actions}>
             <Link href="/contact" className="rf-button rf-button--primary">
-              Let&apos;s talk <Arrow diagonal />
+              Discuss your website
             </Link>
             <Link href="#selected-work" className="rf-button rf-button--secondary">
-              Explore my work <Arrow />
+              View selected work
             </Link>
           </div>
 
-          <p className={styles.note}>A curious mind. A colourful approach.</p>
+          <p className={styles.note}>Working remotely with clients and teams. From first idea to handover.</p>
         </div>
 
         <div className={styles.artwork}>
@@ -70,7 +55,7 @@ export default function Hero() {
               <span className={styles.projectEyebrow}>Meet ReadFlow</span>
               <span className={styles.projectTitle}>Where stories come to life.</span>
             </span>
-            <span className={styles.projectArrow}><Arrow diagonal /></span>
+
           </Link>
         </div>
       </div>
