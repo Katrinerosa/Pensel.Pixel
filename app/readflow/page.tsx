@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import StudioImage from "@/components/StudioImage";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -16,8 +16,9 @@ const decisions = [
 ];
 const stack = [
   { title: "Product frontend", description: "Next.js · React · TypeScript" },
-  { title: "Existing reader & content", description: "Vue · Directus" },
-  { title: "Deployment", description: "Docker · Caddy · Hetzner" },
+  { title: "Reader", description: "Vue 3 · TypeScript · Vite · Pinia · Vue Router" },
+  { title: "Book content", description: "Directus CMS" },
+  { title: "Hosting & deployment", description: "Docker Compose · Caddy · Hetzner · Cloudflare" },
 ];
 
 export default function ReadflowPage() {
@@ -34,7 +35,13 @@ export default function ReadflowPage() {
               <a href="https://readflow.dk" className="rf-button rf-button--primary mt-8">Explore ReadFlow <span aria-hidden="true">↗</span></a>
               <p className="mt-5 max-w-xl text-sm leading-6 text-ink/75">A working reading prototype. Adaptive support and the chatbot are still in development.</p>
             </div>
-            <Image src="/Wulfriclunaread.png" alt="Luna reading alongside Wulfric in the ReadFlow story universe" width={2974} height={2131} preload sizes="(min-width: 1024px) 50vw, calc(100vw - 48px)" className="h-auto w-full" />
+            <StudioImage
+              image="luna-reading"
+              alt="Luna reading alongside Wulfric in the ReadFlow story universe"
+              priority
+              sizes="(min-width: 1340px) 600px, (min-width: 1024px) calc(50vw - 68px), calc(100vw - 48px)"
+              className="h-auto w-full"
+            />
           </div>
         </header>
 
@@ -62,8 +69,8 @@ export default function ReadflowPage() {
             </div>
             <div className="mt-12 grid items-center gap-8 rounded-[var(--rf-radius-md)] bg-warm p-6 sm:p-10 lg:grid-cols-2">
               <div className="grid grid-cols-2 items-center gap-5 sm:gap-8">
-                <Image src="/projects/readflow/luna-is-finding-her-magic.webp" width={1410} height={2250} unoptimized alt="Cover of Luna Is Finding Her Magic" sizes="(min-width: 1024px) 250px, 40vw" className="h-auto w-full" />
-                <Image src="/projects/readflow/luna-and-the-zombie.webp" width={1410} height={2250} unoptimized alt="Cover of Luna and the Zombie" sizes="(min-width: 1024px) 250px, 40vw" className="h-auto w-full" />
+                <StudioImage image="luna-magic-cover" alt="Cover of Luna Is Finding Her Magic" sizes="(min-width: 1024px) 250px, 40vw" className="h-auto w-full" />
+                <StudioImage image="luna-zombie-cover" alt="Cover of Luna and the Zombie" sizes="(min-width: 1024px) 250px, 40vw" className="h-auto w-full" />
               </div>
               <div>
                 <h3 className="text-3xl font-bold tracking-tight text-brand">An illustrated world, connected to a reader.</h3>
@@ -77,8 +84,8 @@ export default function ReadflowPage() {
         <section className="bg-warm px-6 py-20 sm:px-8 sm:py-24 lg:px-12">
           <div className="mx-auto max-w-[1240px]">
             <h2 className="text-4xl font-black tracking-[-0.04em] text-brand sm:text-6xl">Built across design & code.</h2>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink/75">The work combines product thinking, UX, original illustration and frontend development, connecting a new interface to the existing reading experience.</p>
-            <dl className="mt-9 grid gap-6 md:grid-cols-3">
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink/75">I developed the product concept, designed the UX, created the illustrations and built the Next.js frontend. It connects to the existing Vue 3 reader, which I maintain and continue to develop.</p>
+            <dl className="mt-9 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
               {stack.map((item) => <div key={item.title} className="border-t border-brand/25 pt-5"><dt className="text-lg font-bold text-brand">{item.title}</dt><dd className="mt-3 text-base leading-7 text-ink/75">{item.description}</dd></div>)}
             </dl>
           </div>

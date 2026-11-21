@@ -35,7 +35,7 @@ export default function ContactForm() {
           <input
             id="name"
             name="name"
-          required
+            required
             minLength={2}
             maxLength={120}
             type="text"
@@ -59,7 +59,7 @@ export default function ContactForm() {
           <input
             id="email"
             name="email"
-          required
+            required
             maxLength={254}
             type="email"
             autoComplete="email"
@@ -78,7 +78,7 @@ export default function ContactForm() {
 
       <div className="mt-6">
         <label htmlFor="subject" className="block text-sm font-semibold text-ink">
-          Subject
+          What can I help with?
         </label>
         <input
           id="subject"
@@ -87,6 +87,7 @@ export default function ContactForm() {
           minLength={3}
           maxLength={160}
           type="text"
+          placeholder="For example: a new website for my studio"
           defaultValue={values.subject}
           className="mt-2 w-full border border-brand/25 bg-white px-4 py-3 text-base text-ink transition-colors focus:border-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/35"
           aria-invalid={Boolean(errors.subject)}
@@ -101,7 +102,7 @@ export default function ContactForm() {
 
       <div className="mt-6">
         <label htmlFor="message" className="block text-sm font-semibold text-ink">
-          Message
+          Tell me about your project
         </label>
         <textarea
           id="message"
@@ -110,11 +111,13 @@ export default function ContactForm() {
           minLength={20}
           maxLength={10000}
           rows={6}
+          placeholder="Tell me what you do, what you need and any timing you have in mind."
           defaultValue={values.message}
           className="mt-2 w-full border border-brand/25 bg-white px-4 py-3 text-base text-ink transition-colors focus:border-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/35"
           aria-invalid={Boolean(errors.message)}
-          aria-describedby={errors.message ? "message-error" : undefined}
+          aria-describedby={errors.message ? "message-hint message-error" : "message-hint"}
         />
+        <p id="message-hint" className="mt-2 text-sm leading-6 text-ink/75">A few sentences are enough to start. Please write at least 20 characters.</p>
         {errors.message && (
           <p id="message-error" className="mt-2 text-sm text-error" aria-live="polite">
             {errors.message[0]}

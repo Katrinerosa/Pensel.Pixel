@@ -1,20 +1,6 @@
-import Image from "next/image";
+import StudioImage from "@/components/StudioImage";
 import Link from "next/link";
 import styles from "./Hero.module.css";
-
-function Arrow({ diagonal = false }: { diagonal?: boolean }) {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d={diagonal ? "M6 18 18 6M6 6h12v12" : "M4 12h15m-6-6 6 6-6 6"}
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
 
 export default function Hero() {
   return (
@@ -22,28 +8,27 @@ export default function Hero() {
       <div className={styles.inner}>
         <div className={styles.copy}>
           <p className={styles.eyebrow}>
-            <span aria-hidden="true" /> Independent creative studio
+            Pensel &amp; Pixel · Independent creative studio
           </p>
 
           <h1 id="home-hero-title" className={styles.title}>
-            <span>Pensel</span>
-            <span><span className={styles.ampersand}>&amp;</span> Pixel<span className={styles.period}>.</span></span>
+            Websites for small businesses &amp; <span className={styles.highlight}>creative people.</span>
           </h1>
 
           <p className={styles.description}>
-            Creative websites, accessible digital experiences and visual storytelling for brands, educators and ambitious ideas.
+            I design and build responsive websites and help teams improve existing sites with React and Next.js.
           </p>
 
           <div className={styles.actions}>
             <Link href="/contact" className="rf-button rf-button--primary">
-              Let&apos;s talk <Arrow diagonal />
+              Discuss your website
             </Link>
             <Link href="#selected-work" className="rf-button rf-button--secondary">
-              Explore my work <Arrow />
+              View selected work
             </Link>
           </div>
 
-          <p className={styles.note}>A curious mind. A colourful approach.</p>
+          <p className={styles.note}>Available for remote website projects and freelance frontend work.</p>
         </div>
 
         <div className={styles.artwork}>
@@ -51,13 +36,11 @@ export default function Hero() {
           <div className={styles.sun} aria-hidden="true" />
           <div className={styles.corner} aria-hidden="true" />
           <div className={styles.orbit} aria-hidden="true" />
-          <Image
-            src="/Wulfriclunaread.png"
+          <StudioImage
+            image="luna-reading"
             alt="Luna reading a book, nestled beside the wolf Wulfric"
-            width={2974}
-            height={2131}
-            preload
-            sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1440px) 55vw, 760px"
+            priority
+            sizes="(max-width: 768px) min(100vw, 605px), (max-width: 1024px) calc(59.4vw - 40px), (max-width: 1536px) calc(59.4vw - 76px), 837px"
             className={styles.illustration}
           />
           <Link href="/readflow" className={styles.project}>
@@ -70,7 +53,7 @@ export default function Hero() {
               <span className={styles.projectEyebrow}>Meet ReadFlow</span>
               <span className={styles.projectTitle}>Where stories come to life.</span>
             </span>
-            <span className={styles.projectArrow}><Arrow diagonal /></span>
+
           </Link>
         </div>
       </div>

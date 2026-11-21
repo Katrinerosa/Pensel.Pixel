@@ -10,7 +10,9 @@ export default function Footer() {
               Pensel & Pixel
             </p>
             <p className="mt-6 max-w-[680px] text-lg leading-relaxed text-white/85 sm:text-xl">
+              Websites, illustration and creative frontend development. Have a project in mind?
             </p>
+            <Link href="/contact" className="mt-6 inline-flex min-h-12 items-center rounded-full bg-warm px-6 py-3 text-base font-bold text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Discuss your website</Link>
           </div>
 
           <p className="font-mono text-xs leading-relaxed tracking-[0.12em] text-white/70 uppercase lg:col-span-4 lg:text-right">

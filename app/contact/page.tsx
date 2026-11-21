@@ -1,8 +1,14 @@
+import type { Metadata } from "next";
 import ContactForm from "@/app/contact/contact-form";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 
 export const runtime = "nodejs";
+
+export const metadata: Metadata = {
+  title: "Discuss your website | Pensel & Pixel",
+  description: "Tell Katrine Rosa Beck about your new website, an improvement to your current site or a creative frontend project.",
+};
 
 const contactLinks = [
   {
@@ -28,15 +34,25 @@ export default function ContactPage() {
             <p className="font-mono text-xs font-semibold tracking-[0.2em] text-accent uppercase">
               Contact
             </p>
-            <h1 className="mt-5 text-5xl font-black leading-[0.94] tracking-[-0.05em] text-brand sm:text-7xl">
-              Let&apos;s connect
+            <h1 className="mt-5 text-4xl font-black leading-[1.1] tracking-[-0.05em] text-brand sm:text-6xl">
+              Let&apos;s talk about your website
             </h1>
             <p className="mt-10 max-w-[650px] text-lg leading-relaxed text-ink sm:text-2xl">
-              If you would like to collaborate, learn more about ReadFlow, or
-              follow the journey, you can connect with Pensel & Pixel here:
+              Need a new website, a better existing one or a creative collaborator? Tell me a little about your project. You do not need a finished brief to get in touch.
             </p>
 
-            <div className="mt-14 border-t border-brand/25">
+            <div className="mt-8 rounded-[var(--rf-radius-md)] bg-soft p-6 text-base leading-7 text-ink">
+              <h2 className="text-lg font-bold text-brand">A useful starting point</h2>
+              <ul className="mt-3 list-disc space-y-2 pl-5">
+                <li>What your business or project does.</li>
+                <li>Your current website, if you have one.</li>
+                <li>What you would like help with.</li>
+                <li>Any budget or timing you already have in mind.</li>
+              </ul>
+              <p className="mt-5">I will read your message and get back to you to discuss the next step. We agree on the scope before work begins.</p>
+            </div>
+
+            <div className="mt-10 border-t border-brand/25">
               {contactLinks.map((link) => (
                 <a
                   key={link.label}
